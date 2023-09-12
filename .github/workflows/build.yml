@@ -104,9 +104,9 @@ jobs:
           mkdir releases
           for dir in tmp/*shared_libs; do
             if [ -d "$dir" ]; then
-              ls "$dir"
+              echo "$dir"
               folder_name=$(basename "$dir" .zip)
-              (cd "$dir" && zip -r "../releases/${folder_name}.zip" *)
+              (cd $dir && zip -r "../releases/${folder_name}.zip" *)
             fi
           done
 
