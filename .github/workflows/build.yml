@@ -106,7 +106,7 @@ jobs:
             if [ -d "$dir" ]; then
               ls "$dir"
               folder_name=$(basename "$dir" .zip)
-              zip -r "releases/${folder_name}.zip" "$dir"
+              (cd "$dir" && zip -r "../releases/${folder_name}.zip" *)
             fi
           done
 
