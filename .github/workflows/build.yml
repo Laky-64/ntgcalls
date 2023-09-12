@@ -38,18 +38,8 @@ jobs:
         with:
           platforms: arm64
 
-      - name: Build Shared Libs Debug
-        run: python3 setup.py build_shared --no-preserve-cache --debug
-
       - name: Build Shared Libs Release
         run: python3 setup.py build_shared --no-preserve-cache
-
-      - name: Upload shared Debug lib for ${{ matrix.shared_name }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: ntgcalls.${{ matrix.shared_name }}-debug-shared_libs
-          path: ./shared-output-debug/*
-          if-no-files-found: error
 
       - name: Upload shared Release lib for ${{ matrix.shared_name }}
         uses: actions/upload-artifact@v3
